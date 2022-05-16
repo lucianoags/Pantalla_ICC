@@ -18,7 +18,7 @@ public class Pantalla_ICC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        System.out.println("asd");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\lib\\chromedriver.exe");
         
         WebDriver driver = new ChromeDriver();
