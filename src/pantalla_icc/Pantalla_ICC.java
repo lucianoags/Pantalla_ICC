@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import org.openqa.selenium.By;
 import static org.openqa.selenium.By.xpath;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -36,7 +37,8 @@ public class Pantalla_ICC {
             boolean eleSelected= driver.findElement(By.xpath("//*[@id=\"root\"]/div/main/div/div[3]/div[1]/button[1]")).isDisplayed();
             
             if(eleSelected){
-                driver.findElement(By.xpath("//*[@id=\"root\"]/div/main/div/div[3]/div[1]/button[1]")).click();
+                WebElement video = driver.findElement(By.xpath("//*[@id=\"root\"]/div/main/div/div[3]"));
+                video.sendKeys(Keys.SPACE);
                 /*robot.keyPress(KeyEvent.VK_SPACE);
                 robot.keyRelease(KeyEvent.VK_SPACE);*/
                 Thread.sleep(3000);
