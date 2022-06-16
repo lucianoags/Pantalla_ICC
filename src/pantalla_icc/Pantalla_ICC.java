@@ -5,6 +5,7 @@
  */
 package pantalla_icc;
 import java.awt.AWTException;
+import java.util.Collections;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
@@ -13,6 +14,7 @@ import org.openqa.selenium.Keys;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  *
@@ -25,12 +27,20 @@ public class Pantalla_ICC {
      */
     public static void main(String[] args) throws AWTException, InterruptedException {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\lib\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        
+        ChromeOptions option = new ChromeOptions();
+        option.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+        option.setExperimentalOption("useAutomationExtension", false);
+        
+
+        WebDriver driver = new ChromeDriver(option);
+        
         String link = "https://www.canva.com/design/DAE9EqqtLEU/0Gf8QzvbnsxdWVItSJgRAg/watch?utm_content=DAE9EqqtLEU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink";
 
         driver.navigate().to(link);
        // WebElement element = driver.findElement(By.xpath("//*[@id=\"root\"]/div/main/div/div[3]/div[1]"));
      //   ((JavascriptExecutor)driver).executeScript("arguments[0].style.visibility='hidden'", element);
+     
         WebElement fullScreen = driver.findElement(By.xpath("/html/body/div[1]/div/main/div/div[5]/div/div/div[2]/div[2]/button[2]"));
         fullScreen.sendKeys("f");
         WebElement video = driver.findElement(By.xpath("/html/body"));
